@@ -1,0 +1,53 @@
+CREATE database day23_bookstore;
+USE day23_bookstore;
+
+CREATE TABLE category(
+  id VARCHAR(40)   PRIMARY KEY,
+  name VARCHAR(40) NOT NULL UNIQUE ,
+  description VARCHAR(255)
+);
+
+CREATE TABLE user (
+  id VARCHAR(40) PRIMARY KEY ,
+  username VARCHAR(40) NOT NULL UNIQUE ,
+  password VARCHAR(40) NOT NULL ,
+  phone VARCHAR(20) NOT NULL ,
+  cellphone VARCHAR(20) NOT NULL ,
+  email VARCHAR(40) NOT NULL ,
+  address VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE book(
+  id VARCHAR(40)   PRIMARY KEY,
+  name VARCHAR(40) NOT NULL UNIQUE ,
+  price DECIMAL(8,2) NOT NULL ,
+  author VARCHAR(40) NOT NULL ,
+  image VARCHAR(100) NOT NULL,
+  description VARCHAR(255),
+  category_id VARCHAR(40),
+  CONSTRAINT category_id_FK FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
+CREATE TABLE orders(
+  id VARCHAR(40)   PRIMARY KEY,
+  date DATETIME NOT NULL ,
+  state BOOLEAN NOT NULL ,
+  price DECIMAL(8,2) NOT NULL ,
+  user_id VARCHAR(40),
+  CONSTRAINT user_id_FK FOREIGN KEY (user_id) REFERENCES user(id)
+
+);
+
+CREATE TABLE orderitem (
+  id       VARCHAR(40) PRIMARY KEY,
+  quantity INT           NOT NULL,
+  price    DECIMAL(8, 2) NOT NULL,
+  book_id  VARCHAR(40),
+  order_id VARCHAR(40),
+  CONSTRAINT book_id_FK FOREIGN KEY (book_id) REFERENCES book (id),
+  CONSTRAINT order_id_FK FOREIGN KEY (order_id)  REFERENCES orders(id)
+);
+
+
+
+
