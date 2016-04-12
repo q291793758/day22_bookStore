@@ -7,7 +7,7 @@ import java.util.List;
 public interface BussinessService {
 
     void addCategory(Category category);
-
+    void updateCategory(Category category);
     Category findCategoryById(String id);
 
     List<Category> getAllCategory();
@@ -17,6 +17,8 @@ public interface BussinessService {
     void addBook(Book book);
 
     Book findBookById(String id);
+
+    List getAllBooks();
 
     //接收查询信息:currentpage,pagesize,startindex,categoryId等数据
     //返回封装了页面信息的pagebean

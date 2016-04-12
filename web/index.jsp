@@ -13,7 +13,7 @@
     </style>
   </head>
   <body bgcolor="c7edcc">
-  $END$
+  <h2><a href="/back.jsp">后台管理</a></h2>
   <hr>
   </body>
 </html>

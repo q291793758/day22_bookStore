@@ -16,7 +16,7 @@
       <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="category_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="category_id_FK" columns="category_id" ref-table="category" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="category_id_FK" columns="category_id" ref-table="category" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
     </table>
     <table name="category" schema="" catalog="day23_bookstore" type="TABLE">
       <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
@@ -31,8 +31,8 @@
       <column name="book_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
       <column name="order_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="book_id_FK" columns="book_id" ref-table="book" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="order_id_FK" columns="order_id" ref-table="orders" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="book_id_FK" columns="book_id" ref-table="book" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
+      <foreign-key name="order_id_FK" columns="order_id" ref-table="orders" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
     </table>
     <table name="orders" schema="" catalog="day23_bookstore" type="TABLE">
       <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
@@ -41,7 +41,7 @@
       <column name="price" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
       <column name="user_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="user_id_FK" columns="user_id" ref-table="user" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_FK" columns="user_id" ref-table="user" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
     </table>
     <table name="user" schema="" catalog="day23_bookstore" type="TABLE">
       <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>

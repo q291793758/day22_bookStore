@@ -6,7 +6,7 @@ public class User {
     private String password;
     private String phone;
     private String cellphone;
-    private String eamil;
+    private String email;
     private String address;
 
     public String getId() {
@@ -49,12 +49,12 @@ public class User {
         this.cellphone = cellphone;
     }
 
-    public String getEamil() {
-        return eamil;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEamil(String eamil) {
-        this.eamil = eamil;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {

@@ -13,6 +13,7 @@ public class Cart {
         CartItem item = map.get(book.getId());
         //查看购物车里的购物项有没有这本书的信息
         if (item == null) {  //没有,添加购物项
+            item=new CartItem();
             item.setBook(book);
             item.setQuantity(1);
             map.put(book.getId(), item);
@@ -30,9 +31,6 @@ public class Cart {
     }
 
     public double getPrice() {
-        if (map == null) {
-            return 0;
-        }
         Set<Map.Entry<String, CartItem>> set = map.entrySet();
         for (Map.Entry<String, CartItem> entry : set) {
            this.price=price+ entry.getValue().getPrice();

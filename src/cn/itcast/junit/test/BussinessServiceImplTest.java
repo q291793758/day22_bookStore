@@ -1,10 +1,8 @@
 package cn.itcast.junit.test;
 
-import cn.itcast.domain.Book;
-import cn.itcast.domain.Category;
-import cn.itcast.domain.PageBean;
-import cn.itcast.domain.QueryInfo;
+import cn.itcast.domain.*;
 import cn.itcast.service.impl.BussinessServiceImpl;
+import cn.itcast.utils.JdbcUtils;
 import org.junit.Test;
 
 import java.util.List;
@@ -37,24 +35,25 @@ public class BussinessServiceImplTest {
 
     @Test
     public void testDeleteCategory() throws Exception {
-        Boolean aBoolean = service.deleteCategory("3");
+        Boolean aBoolean = service.deleteCategory("2");
         System.out.println(aBoolean);
+        JdbcUtils.commitTransaction();
     }
 
     @Test
     public void testAddBook() throws Exception {
+        for (int i = 0; i <20 ; i++) {
         Book book = new Book();
-        book.setId(UUID.randomUUID().toString());
-        book.setName("Java编程思想");
-        book.setDescription("《计算机科学丛书：Java编程思想（第4版）》特点：\n" +
-                "　　适合初学者与专业人员的经典的面向对象叙述方式，为更新的JavaSE5/6增加了新的示例和章节。\n" +
-                "　　测验框架显示程序输出");
+        book.setId(UUID.randomUUID().toString()+i);
+        book.setName("JavaEE编程思想"+i);
+        book.setDescription("计算机科学丛书");
         book.setPrice(71.30);
         book.setAuthor("陈昊鹏");
         book.setImage("/111.jpg");
-        book.setCategory(service.findCategoryById("1"));
+        book.setCategory(service.findCategoryById("2"));
         service.addBook(book);
-
+            JdbcUtils.commitTransaction();
+        }
     }
 
 
@@ -69,8 +68,7 @@ public class BussinessServiceImplTest {
         QueryInfo queryinfo=new QueryInfo();
         queryinfo.setCurrentpage(1);
         PageBean pageBean = service.BookPageQuery(queryinfo);
-        pageBean.getTotalrecord();pageBean.getCurrentpage();pageBean.getPagesize();
-        pageBean.getPagebar();
+
         System.out.println(pageBean.getTotalpage());
         System.out.println(pageBean.getPreviouspage());
         System.out.println(pageBean.getNextpage());
@@ -78,31 +76,48 @@ public class BussinessServiceImplTest {
 
     @Test
     public void testAddUser() throws Exception {
-
+        User user = new User();
+        user.setId(UUID.randomUUID().toString());
+        user.setUsername("张三");
+        user.setPassword("123123");
+        user.setAddress("北京崇文门");
+        user.setCellphone("123123");
+        user.setEmail("aaa@aa.com");
+        user.setPhone("123123");
+        service.addUser(user);
     }
 
     @Test
     public void testFindUserById() throws Exception {
-
+        User user = service.findUserById("3d4befdd-6e6c-443e-97c0-e860085102fc");
+        System.out.println(user.getUsername()); //检查出domain/User的email属性拼写错误,和数据库不一致导致无法得到正确的值
     }
 
     @Test
     public void testFindUserByNamePassword() throws Exception {
-
+        User user = service.findUserByNamePassword("张三", "123123");
+        System.out.println(user.getUsername());
     }
 
     @Test
     public void testAddOrder() throws Exception {
+        User user = service.findUserById("3d4befdd-6e6c-443e-97c0-e860085102fc");
+        Cart cart = new Cart();
+        Book book = service.findBookById("1");
+        cart.addBook(book); //获取购物车的价格,购物车迭代购物项的价格,购物项的价格不会触发setQuantity
+
+        service.addOrder(cart,user);
+        JdbcUtils.commitTransaction();
 
     }
 
     @Test
     public void testFindOrderById() throws Exception {
-
+        Order order = service.findOrderById("db8b92a9-4492-46bf-b2b1-0573c929c4b5");
     }
 
     @Test
     public void testGetAllOrders() throws Exception {
-
+        List<Order> allOrders = service.getAllOrders(true);
     }
 }

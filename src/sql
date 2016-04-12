@@ -26,16 +26,17 @@ CREATE TABLE book(
   description VARCHAR(255),
   category_id VARCHAR(40),
   CONSTRAINT category_id_FK FOREIGN KEY (category_id) REFERENCES category(id)
+  ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE orders(
   id VARCHAR(40)   PRIMARY KEY,
-  date DATETIME NOT NULL ,
+  ordertime DATETIME NOT NULL ,
   state BOOLEAN NOT NULL ,
   price DECIMAL(8,2) NOT NULL ,
   user_id VARCHAR(40),
   CONSTRAINT user_id_FK FOREIGN KEY (user_id) REFERENCES user(id)
-
+  ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE orderitem (
@@ -44,8 +45,10 @@ CREATE TABLE orderitem (
   price    DECIMAL(8, 2) NOT NULL,
   book_id  VARCHAR(40),
   order_id VARCHAR(40),
-  CONSTRAINT book_id_FK FOREIGN KEY (book_id) REFERENCES book (id),
+  CONSTRAINT book_id_FK FOREIGN KEY (book_id) REFERENCES book (id)
+  ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT order_id_FK FOREIGN KEY (order_id)  REFERENCES orders(id)
+  ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 

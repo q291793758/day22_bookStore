@@ -90,11 +90,12 @@ public class PageBean {
     }
 
     public int getNextpage() {
-        if (this.currentpage+1 > this.totalpage) {
-            this.nextpage = totalpage;
+        if (this.currentpage+1 > this.getTotalpage()) {
+            this.nextpage=this.totalpage;
             return nextpage;
         }
-        return nextpage + 1;
+        this.nextpage=this.currentpage+1;
+        return nextpage;
     }
 
 }

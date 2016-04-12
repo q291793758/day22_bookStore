@@ -20,7 +20,7 @@ public class OrderDaoImpl implements cn.itcast.dao.OrderDao {
             //插入订单Order信息
             Connection connection = JdbcUtils.getConnection();
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "INSERT INTO orders (id, date, state, price, user_id) VALUES (?,?,?,?,?);";
+            String sql = "INSERT INTO orders (id, ordertime, state, price, user_id) VALUES (?,?,?,?,?);";
             Object[] params = {order.getId(), order.getOrdertime(), order.getState(),
                     order.getPrice(), order.getUser().getId()};
             runner.update(connection, sql, params);
@@ -59,7 +59,7 @@ public class OrderDaoImpl implements cn.itcast.dao.OrderDao {
             }
 
             //加入订单项信息
-            if (list!=null) {
+            if (list != null) {
                 order.getOrderitems().addAll(list);
             }
 
@@ -83,14 +83,17 @@ public class OrderDaoImpl implements cn.itcast.dao.OrderDao {
             QueryRunner runner = new QueryRunner();
             String sql = "SELECT * FROM orders WHERE state=?";
             Object[] params = {state};
-            List<Order> list = (List<Order>) runner.query(connection, sql, new BeanListHandler(Order.class),params);
+            List<Order> list = (List<Order>) runner.query(connection, sql, new BeanListHandler(Order.class), params);
 
             //找出下订单的User
-            for (Order order : list) {
-                sql="SELECT user.* FROM orders,user WHERE orders.state=? AND user.id=orders.user_id";
-                User user = (User) runner.query(connection, sql, state, new BeanHandler(User.class));
-                order.setUser(user);
+            if (list.size() <= 0&&list==null) {
+              return null;
             }
+                for (Order order : list) {
+                    sql = "SELECT user.* FROM orders,user WHERE orders.state=? AND user.id=orders.user_id";
+                    User user = (User) runner.query(connection, sql, state, new BeanHandler(User.class));
+                    order.setUser(user);
+                }
 
             return list;
 

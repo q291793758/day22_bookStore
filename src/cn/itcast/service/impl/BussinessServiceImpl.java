@@ -26,6 +26,11 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
     }
 
     @Override
+    public void updateCategory(Category category) {
+        categorydao.update(category);
+    }
+
+    @Override
     public Category findCategoryById(String id) {
         return categorydao.findById(id);
     }
@@ -51,6 +56,11 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
     @Override
     public Book findBookById(String id) {
         return bookdao.findById(id);
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+       return bookdao.getAllBooks();
     }
 
     //接收查询信息:currentpage,pagesize,startindex,categoryId等数据
@@ -127,7 +137,7 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
     }
 
     @Override
-    public List<Order> getAllOrders(Boolean state) {
+    public List getAllOrders(Boolean state) {
         return orderdao.getAll(state);
     }
 }

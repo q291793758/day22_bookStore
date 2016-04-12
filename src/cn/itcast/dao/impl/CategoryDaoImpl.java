@@ -47,11 +47,9 @@ public class CategoryDaoImpl implements cn.itcast.dao.CategoryDao {
             String sql = "DELETE FROM category WHERE id=?";
             int i=  runner.update( connection,sql,id);
             return i > 0;
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
     }
     @Override
     public List getAll() {
@@ -61,6 +59,20 @@ public class CategoryDaoImpl implements cn.itcast.dao.CategoryDao {
             String sql = "SELECT * FROM category";
             return (List) runner.query( connection,sql,new BeanListHandler(Category.class));
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void update(Category c) {
+        try {
+            Connection connection = JdbcUtils.getConnection();
+            QueryRunner runner = new QueryRunner();
+            String sql = "UPDATE category SET name=?,description=? WHERE id=?";
+            Object[] params={c.getName(),c.getDescription(),c.getId()};
+            runner.update(connection, sql,params);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

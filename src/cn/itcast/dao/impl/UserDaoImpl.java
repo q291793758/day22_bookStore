@@ -16,8 +16,9 @@ public class UserDaoImpl implements cn.itcast.dao.UserDao {
             QueryRunner runner = new QueryRunner();
             String sql = "INSERT  INTO  user (id, username, password, phone, cellphone, email, address) VALUES (?,?,?,?,?,?,?)";
             Object[] params = {user.getId(), user.getUsername(), user.getPassword(),
-                    user.getPhone(), user.getCellphone(), user.getEamil(), user.getAddress()};
+                    user.getPhone(), user.getCellphone(), user.getEmail(), user.getAddress()};
             runner.update(connection, sql, params);
+            connection.commit();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

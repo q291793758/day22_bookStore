@@ -12,4 +12,5 @@ public interface CategoryDao {
     Boolean deleteById(String id);
 
     List getAll();
+    void update(Category c);
 }

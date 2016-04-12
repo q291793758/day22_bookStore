@@ -2,7 +2,7 @@
 <%--<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <html>
 <head>
-    <title>后台管理页面</title>
+    <title>后台管理头页面</title>
     <style>
         body {
             text-align: center;
@@ -11,15 +11,10 @@
         }
     </style>
 </head>
-
-<frameset rows="18%,*">
-    <frame src="${pageContext.request.contextPath}/manager/head.jsp" name="head">
-    <frameset  cols="15%,*">
-        <frame src="${pageContext.request.contextPath}/manager/left.jsp" name="left">
-        <frame src="#" name="right">
-    </frameset>
-</frameset>
-
+<body bgcolor="c7edcc">
+<br>
+<h1>在线网上书店后台管理</h1>
+</body>
 </html>
 
 
@@ -29,6 +24,6 @@
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2016/4/9
-  Time: 9:10
+  Time: 9:12
   To change this template use File | Settings | File Templates.
 -->

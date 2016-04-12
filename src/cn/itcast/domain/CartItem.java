@@ -6,7 +6,7 @@ public class CartItem {
     private double price;
 
     public int getQuantity() {
-        this.price=book.getPrice()*quantity;
+        this.price=this.book.getPrice()*this.quantity;
         return quantity;
     }
 
@@ -15,6 +15,7 @@ public class CartItem {
     }
 
     public double getPrice() {
+        this.price=this.book.getPrice()*this.quantity;
         return price;
     }
 

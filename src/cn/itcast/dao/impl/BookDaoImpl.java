@@ -92,5 +92,17 @@ public class BookDaoImpl implements cn.itcast.dao.BookDao {
         return null;
     }
 
+    @Override
+    public List getAllBooks() {
+        try {
+            Connection connection = JdbcUtils.getConnection();
+            QueryRunner runner = new QueryRunner();
+            String sql = "SELECT * FROM book";
+          return (List) runner.query(connection,sql, new BeanListHandler(Book.class));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
