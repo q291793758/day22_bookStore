@@ -15,7 +15,7 @@ public class CartItem {
     }
 
     public double getPrice() {
-        this.price=this.book.getPrice()*this.quantity;
+//        this.price=this.book.getPrice()*this.quantity;
         return price;
     }
 

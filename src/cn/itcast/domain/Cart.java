@@ -31,12 +31,12 @@ public class Cart {
     }
 
     public double getPrice() {
+        double totalprice = 0;
         Set<Map.Entry<String, CartItem>> set = map.entrySet();
         for (Map.Entry<String, CartItem> entry : set) {
-           this.price=price+ entry.getValue().getPrice();
+            totalprice=price+ entry.getValue().getPrice();
         }
-        return price;
-
+        return totalprice;
     }
 
 }

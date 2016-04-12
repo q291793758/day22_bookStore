@@ -25,6 +25,46 @@
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>cn.itcast.web.client.IndexServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuyServlet</servlet-name>
+        <servlet-class>cn.itcast.web.client.BuyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>cn.itcast.web.client.OrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>cn.itcast.web.client.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>cn.itcast.web.client.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getOrderServlet</servlet-name>
+        <servlet-class>cn.itcast.web.controller.getOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getOrderServlet</servlet-name>
+        <url-pattern>/manag/getOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/client/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/client/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/client/OrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuyServlet</servlet-name>
+        <url-pattern>/client/BuyServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/client/IndexServlet</url-pattern>

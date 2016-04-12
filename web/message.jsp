@@ -13,6 +13,7 @@
 </head>
 <body bgcolor="c7edcc">
 ${message}
+
 </body>
 </html>
 

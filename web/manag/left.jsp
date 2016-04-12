@@ -50,8 +50,8 @@
     <li>
         <a href="#" onclick="test(children[0])">订单管理
             <div class="dc">
-                <a href="${pageContext.request.contextPath }/manag/OrderServlet?method=getAll&state=false"  target="right">待处理订单</a><br/>
-                <a href="${pageContext.request.contextPath }/manag/OrderServlet?method=getAll&state=true"  target="right">已发货订单</a><br/>
+                <a href="${pageContext.request.contextPath }/manag/getOrderServlet?method=getAll&state=false"  target="right">待处理订单</a><br/>
+                <a href="${pageContext.request.contextPath }/manag/getOrderServlet?method=getAll&state=true"  target="right">已发货订单</a><br/>
             </div>
         </a>
     </li>
