@@ -64,6 +64,11 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
         pageBean.setPagesize(queryInfo.getPagesize());
         pageBean.setBooklist(queryResult.getList());
 
+        pageBean.getTotalpage();
+        pageBean.getNextpage();
+        pageBean.getPreviouspage();
+        pageBean.getPagebar();
+
         return pageBean;
     }
 
@@ -114,7 +119,7 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
         }
         order.setOrderitems(orderItemSet);
 
-
+        orderdao.add(order);
     }
     @Override
     public Order findOrderById(String id) {
