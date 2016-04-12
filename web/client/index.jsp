@@ -65,7 +65,7 @@
             书籍分类列表:
             <c:forEach var="category" items="${categorys}">
                 <li>
-                    <a href="#">${category.name}</a>
+                    <a href="${pageContext.request.contextPath}/client/IndexServlet?category_id=${category.id}">${category.name}</a>
                 </li>
             </c:forEach>
         </div>
@@ -91,6 +91,16 @@
                 </c:if>
             </c:forEach>
             <div style="clear: both"></div>
+            <br><br><br><br><br>
+
+        <div id="pagebar" align="center">
+            总共${pagebean.totalpage }页
+            当前${pagebean.currentpage }页
+            <c:forEach var="pagenum" items="${pagebean.pagebar}">
+                <a href="${pageContext.request.contextPath }/client/IndexServlet?currentpage=${pagenum }&category_id=${param.category_id }">${pagenum }</a>
+            </c:forEach>
+
+        </div><hr>
         </div>
 
 

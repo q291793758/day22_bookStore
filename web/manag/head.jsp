@@ -14,6 +14,7 @@
 <body bgcolor="c7edcc">
 <br>
 <h1>在线网上书店后台管理</h1>
+<a href="/client/IndexServlet" target="_parent">前台主页</a>
 </body>
 </html>
 

@@ -21,6 +21,14 @@
         <servlet-name>BookServlet</servlet-name>
         <servlet-class>cn.itcast.web.controller.BookServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>cn.itcast.web.client.IndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/client/IndexServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BookServlet</servlet-name>
         <url-pattern>/manag/BookServlet</url-pattern>

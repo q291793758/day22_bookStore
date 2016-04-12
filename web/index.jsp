@@ -13,6 +13,7 @@
     </style>
   </head>
   <body bgcolor="c7edcc">
+  <jsp:forward page="/client/IndexServlet"></jsp:forward>
   <h2><a href="/back.jsp">后台管理</a></h2>
   <hr>
   </body>
