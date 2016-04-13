@@ -32,7 +32,7 @@ public interface BussinessService {
 
     //根据用户的购物车产生订单对象
     void addOrder(Cart cart, User user);
-
+    boolean updateOrderState(String id,boolean state);
     Order findOrderById(String id);
 
     List<Order> getAllOrders(Boolean state);

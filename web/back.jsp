@@ -9,7 +9,7 @@
     <frame src="${pageContext.request.contextPath}/manag/head.jsp" name="head">
     <frameset  cols="15%,*">
         <frame src="${pageContext.request.contextPath}/manag/left.jsp" name="left">
-        <frame src="#" name="right">
+        <frame src="${pageContext.request.contextPath}/manag/right.jsp" name="right">
     </frameset>
 </frameset>
 </html>

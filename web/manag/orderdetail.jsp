@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>订单详细信息</title>
@@ -54,7 +54,12 @@
     </tr>
 </table>
 <br/>
-<a href="${pageContext.request.contextPath }/manag/getOrderServlet?method=update&id=${order.id }">确认发货</a>
+<c:if test="${order.state==false}">
+<a href="${pageContext.request.contextPath }/manag/getOrderServlet?method=update&id=${order.id }&state=true">确认发货</a>
+</c:if>
+<c:if test="${order.state==true}">
+<a href="${pageContext.request.contextPath }/manag/getOrderServlet?method=update&id=${order.id }&state=false">取消发货</a>
+</c:if>
 
 </body>
 </html>

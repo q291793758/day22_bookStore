@@ -103,4 +103,18 @@ public class OrderDaoImpl implements cn.itcast.dao.OrderDao {
 
     }
 
+    @Override
+    public boolean updateState(String id, Boolean state) {
+        try {
+            Connection connection = JdbcUtils.getConnection();
+            QueryRunner runner = new QueryRunner();
+            String sql = "UPDATE orders SET state=? WHERE id=?";
+            Object[] params={state,id};
+            int i = runner.update(connection, sql, params);
+            return i>0;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

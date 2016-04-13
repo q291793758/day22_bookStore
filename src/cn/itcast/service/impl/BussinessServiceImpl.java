@@ -131,6 +131,13 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
 
         orderdao.add(order);
     }
+
+    @Override
+    public boolean updateOrderState(String id, boolean state) {
+        return orderdao.updateState(id, state);
+
+    }
+
     @Override
     public Order findOrderById(String id) {
         return orderdao.findById(id);

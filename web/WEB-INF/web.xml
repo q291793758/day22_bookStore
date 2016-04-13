@@ -45,6 +45,14 @@
         <servlet-name>getOrderServlet</servlet-name>
         <servlet-class>cn.itcast.web.controller.getOrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DbServlet</servlet-name>
+        <servlet-class>cn.itcast.web.controller.DbServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DbServlet</servlet-name>
+        <url-pattern>/manag/DbServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>getOrderServlet</servlet-name>
         <url-pattern>/manag/getOrderServlet</url-pattern>

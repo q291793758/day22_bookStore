@@ -11,4 +11,6 @@ public interface OrderDao {
 
     // state==true 已发货  state==false 未发货
     List<Order> getAll(Boolean state);
+
+    boolean updateState(String id, Boolean state);
 }
