@@ -130,3 +130,24 @@
       email VARCHAR(40) NOT NULL ,
       address VARCHAR(255) NOT NULL
     );
+    
+    ## 3,写dao层
+    
+    ## 4,写service层
+    
+    ## 5,做web层
+    
+    ## 6,数据库备份模块
+    
+    为保存数据库备份信息,需要新建一个数据库
+        CREATE DATABASE day23_bookstore_databak;
+        USE  day23_bookstore_databak;
+        CREATE TABLE dbbak(
+        id VARCHAR(40) PRIMARY KEY,
+        filename VARCHAR(255) NOT NULL,
+        baktime DATETIME  NOT NULL ,
+         description VARCHAR(255)
+    );
+    
+
+    

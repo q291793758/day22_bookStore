@@ -10,6 +10,8 @@ public class JdbcUtils {
 	
 	private static ThreadLocal<Connection> tl = new ThreadLocal<Connection>();
 	private static DataSource ds;
+
+
 	static{
 		ds = new ComboPooledDataSource();
 	}
@@ -17,7 +19,7 @@ public class JdbcUtils {
 	public static DataSource getDataSource(){
 		return ds;
 	}
-	
+
 	
 	public static Connection getConnection(){
 		try{

@@ -36,4 +36,9 @@ public interface BussinessService {
     Order findOrderById(String id);
 
     List<Order> getAllOrders(Boolean state);
+
+    boolean addDatabackup(Databackup databackup);
+
+    List getAllDatabackup();
+    Databackup findDatabackupById(String id);
 }

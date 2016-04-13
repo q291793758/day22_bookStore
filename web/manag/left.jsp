@@ -59,8 +59,8 @@
     <br/><br/><li>
         <a href="#" onclick="test(children[0])">数据库管理
             <div class="dc">
-                <a href="${pageContext.request.contextPath }/manag/DbServlet?method=backup"  target="right">数据库备份</a><br/>
-                <a href="${pageContext.request.contextPath }/manag/DbServlet?method=recovery"  target="right">数据库恢复</a><br/>
+                <a href="${pageContext.request.contextPath }/manag/databackup.jsp"  target="right">数据库备份</a><br/>
+                <a href="${pageContext.request.contextPath }/manag/DbServlet?method=listRecovery"  target="right">数据库恢复</a><br/>
             </div>
         </a>
     </li>

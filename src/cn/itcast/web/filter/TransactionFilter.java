@@ -1,6 +1,7 @@
 package cn.itcast.web.filter;
 
 import cn.itcast.utils.JdbcUtils;
+import cn.itcast.utils.JdbcUtils_bak;
 
 import javax.servlet.*;
 import java.io.IOException;
@@ -19,8 +20,10 @@ public class TransactionFilter implements Filter {
 			
 			//获取当前线程Connection上绑定的事务,提交事务,并关闭链接,释放链接Connection和当前线程的绑定
 			JdbcUtils.commitTransaction();
+			JdbcUtils_bak.commitTransaction();
 		}finally{
 			JdbcUtils.closeConn();
+			JdbcUtils_bak.closeConn();
 		}
 	
 	}

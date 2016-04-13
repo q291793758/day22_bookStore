@@ -7,7 +7,6 @@
 		<property name="jdbcUrl">jdbc:mysql://localhost:3306/day23_bookstore</property>
 		<property name="user">root</property>
 		<property name="password">root</property>
-		
 		<property name="acquireIncrement">5</property>
 		<property name="initialPoolSize">10</property>
 		<property name="minPoolSize">5</property>
@@ -16,9 +15,9 @@
 		
 	</default-config>
 
-	<named-config name="flx">
+	<named-config name="bak">
 		<property name="driverClass">com.mysql.jdbc.Driver</property>
-		<property name="jdbcUrl">jdbc:mysql://localhost:3306/yourdatabase</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/day23_bookstore_databak</property>
 		<property name="user">root</property>
 		<property name="password">root</property>
 		<property name="acquireIncrement">5</property>

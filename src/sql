@@ -51,6 +51,14 @@ CREATE TABLE orderitem (
   ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-
+数据库备份:
+ CREATE DATABASE day23_bookstore_databak;
+        USE  day23_bookstore_databak;
+        CREATE TABLE dbbak(
+        id VARCHAR(40) PRIMARY KEY,
+        filename VARCHAR(255) NOT NULL,
+        baktime DATETIME  NOT NULL ,
+         description VARCHAR(255)
+    );
 
 

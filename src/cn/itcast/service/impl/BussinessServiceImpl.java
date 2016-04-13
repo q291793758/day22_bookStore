@@ -1,9 +1,6 @@
 package cn.itcast.service.impl;
 
-import cn.itcast.dao.BookDao;
-import cn.itcast.dao.CategoryDao;
-import cn.itcast.dao.OrderDao;
-import cn.itcast.dao.UserDao;
+import cn.itcast.dao.*;
 import cn.itcast.domain.*;
 import cn.itcast.factory.DaoFactory;
 
@@ -15,6 +12,7 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
     private CategoryDao categorydao = DaoFactory.getInstance().createDao(CategoryDao.class);
     private OrderDao orderdao = DaoFactory.getInstance().createDao(OrderDao.class);
     private UserDao userdao = DaoFactory.getInstance().createDao(UserDao.class);
+    private DbBakDao dbBakDao = DaoFactory.getInstance().createDao(DbBakDao.class);
 
     /*******************************************
      * 分类相关服务
@@ -146,5 +144,26 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
     @Override
     public List getAllOrders(Boolean state) {
         return orderdao.getAll(state);
+    }
+
+
+    /*******************************************
+     * 数据库备份相关服务
+     *****************************************/
+
+    @Override
+    public boolean addDatabackup(Databackup databackup) {
+
+        return dbBakDao.add(databackup);
+    }
+
+    @Override
+    public List getAllDatabackup() {
+        return dbBakDao.getAll();
+    }
+
+    @Override
+    public Databackup findDatabackupById(String id) {
+        return dbBakDao.findDatabackupById(id);
     }
 }
