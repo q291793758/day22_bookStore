@@ -3,6 +3,7 @@ package cn.itcast.service.impl;
 import cn.itcast.dao.*;
 import cn.itcast.domain.*;
 import cn.itcast.factory.DaoFactory;
+import cn.itcast.utils.Permission;
 
 import java.util.*;
 
@@ -19,11 +20,15 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
      *****************************************/
 
     @Override
+
+    @Permission("添加分类")
     public void addCategory(Category category) {
         categorydao.add(category);
     }
 
     @Override
+
+
     public void updateCategory(Category category) {
         categorydao.update(category);
     }
@@ -34,6 +39,8 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
     }
 
     @Override
+
+    @Permission("查看分类")
     public List<Category> getAllCategory() {
         return categorydao.getAll();
     }
@@ -95,6 +102,10 @@ public class BussinessServiceImpl implements cn.itcast.service.BussinessService 
     @Override
     public User findUserByNamePassword(String username, String password) {
         return userdao.findByNamePassword(username, password);
+    }
+    public List getUserAllPrivilege(User user) {
+
+       return userdao.getAllPrivilege(user);
     }
 
 

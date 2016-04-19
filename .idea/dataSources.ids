@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - day23_bookstore@localhost" uuid="a3bf3b55-1c1e-4ed4-8adc-48b77b74deca">
-    <database-info product="MySQL" version="5.0.22-community-nt" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.0.8 ( Revision: ${svn.Revision} )">
+  <data-source name="MySQL - day23_bookstore@localhost" uuid="a88c6c13-e2cb-439b-94aa-85a3ac60296e">
+    <database-info product="MySQL" version="5.0.22-community-nt" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -17,12 +17,15 @@
       <column name="category_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="category_id_FK" columns="category_id" ref-table="category" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
+      <index name="name" unique="true" columns="name"/>
+      <index name="category_id_FK" unique="false" columns="category_id"/>
     </table>
     <table name="category" schema="" catalog="day23_bookstore" type="TABLE">
       <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="name" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
     </table>
     <table name="orderitem" schema="" catalog="day23_bookstore" type="TABLE">
       <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
@@ -33,15 +36,24 @@
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="book_id_FK" columns="book_id" ref-table="book" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
       <foreign-key name="order_id_FK" columns="order_id" ref-table="orders" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
+      <index name="book_id_FK" unique="false" columns="book_id"/>
+      <index name="order_id_FK" unique="false" columns="order_id"/>
     </table>
     <table name="orders" schema="" catalog="day23_bookstore" type="TABLE">
       <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="ordertime" sqlType="DATETIME" precision="0" scale="0" nullable="false" jdbcType="93" def="Jyc="/>
+      <column name="ordertime" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="Jyc="/>
       <column name="state" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <column name="price" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
       <column name="user_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="user_id_FK" columns="user_id" ref-table="user" ref-schema="" ref-catalog="day23_bookstore" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
+      <index name="user_id_FK" unique="false" columns="user_id"/>
+    </table>
+    <table name="privilege" schema="" catalog="day23_bookstore" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="name" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="user" schema="" catalog="day23_bookstore" type="TABLE">
       <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
@@ -52,21 +64,11 @@
       <column name="email" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <primary-key name="PRIMARY" columns="id"/>
+      <index name="username" unique="true" columns="username"/>
     </table>
-  </data-source>
-  <data-source name="MySQL - day23_bookstore_databak@localhost" uuid="8f2c7d0a-7b79-4b68-9e4c-861f237b3dfb">
-    <database-info product="MySQL" version="5.0.22-community-nt" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.0.8 ( Revision: ${svn.Revision} )">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
-    </database-info>
-    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <schema name="" catalog="day23_bookstore_databak"/>
-    <table name="dbbak" schema="" catalog="day23_bookstore_databak" type="TABLE">
-      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="filename" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="baktime" sqlType="DATETIME" precision="0" scale="0" nullable="false" jdbcType="93" def="Jyc="/>
-      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
+    <table name="user_privilege" schema="" catalog="day23_bookstore" type="TABLE">
+      <column name="user_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="privilege_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
     </table>
   </data-source>
 </component>

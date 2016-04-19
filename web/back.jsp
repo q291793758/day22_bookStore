@@ -5,7 +5,7 @@
     <title>后台管理页面</title>
 </head>
 
-<frameset rows="18%,*">
+<frameset rows="21%,*">
     <frame src="${pageContext.request.contextPath}/manag/head.jsp" name="head">
     <frameset  cols="15%,*">
         <frame src="${pageContext.request.contextPath}/manag/left.jsp" name="left">

@@ -29,6 +29,7 @@ public interface BussinessService {
     User findUserById(String id);
 
     User findUserByNamePassword(String username, String password);
+    List getUserAllPrivilege(User user);
 
     //根据用户的购物车产生订单对象
     void addOrder(Cart cart, User user);

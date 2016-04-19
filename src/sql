@@ -61,4 +61,15 @@ CREATE TABLE orderitem (
          description VARCHAR(255)
     );
 
+权限表
+CREATE TABLE privilege (
+  id          VARCHAR(40) PRIMARY KEY,
+  name        VARCHAR(40),
+  description VARCHAR(255)
+);
+用户对应权限表
+CREATE TABLE user_privilege (
+  user_id      VARCHAR(40),
+  privilege_id VARCHAR(40)
 
+);
